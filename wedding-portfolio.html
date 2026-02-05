@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Content Creator | Capturing Your Love Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --cream: #FAF7F2;
+            --soft-beige: #E8DFD3;
+            --warm-taupe: #C4B5A0;
+            --deep-rose: #A67B7B;
+            --charcoal: #2C2C2C;
+            --gold-accent: #D4AF37;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--cream);
+            color: var(--charcoal);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(250, 247, 242, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            box-shadow: 0 2px 20px var(--shadow-light);
+            animation: slideDown 0.8s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            color: var(--charcoal);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--charcoal);
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold-accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background-color: var(--charcoal);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: var(--cream);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-color: var(--cream);
+            overflow: hidden;
+        }
+
+        .hero-banner {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.2;
+            z-index: 0;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            position: relative;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--deep-rose);
+            margin-bottom: 3rem;
+            letter-spacing: 4px;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: var(--charcoal);
+            color: var(--cream);
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+            transition: all 0.4s ease;
+            border: 2px solid var(--charcoal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: var(--gold-accent);
+            transition: width 0.6s ease, height 0.6s ease;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .cta-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .cta-button:hover {
+            border-color: var(--gold-accent);
+            color: var(--charcoal);
+        }
+
+        /* Section Base Styles */
+        section {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--deep-rose);
+            margin-bottom: 4rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        /* About Section */
+        .about {
+            background: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, var(--soft-beige) 0%, var(--warm-taupe) 100%);
+            border-radius: 2px;
+            box-shadow: 0 20px 60px var(--shadow-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y="50" font-size="60" fill="%23E8DFD3" opacity="0.3" font-family="serif">✨</text></svg>') center/80px;
+            opacity: 0.1;
+        }
+
+        .about-content h2 {
+            margin-bottom: 2rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: #555;
+        }
+
+        .highlight {
+            color: var(--deep-rose);
+            font-weight: 500;
+        }
+
+        /* Services Section */
+        .services {
+            background: var(--cream);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-medium);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--deep-rose);
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        /* Style Section */
+        .style-section {
+            background: linear-gradient(135deg, #2C2C2C 0%, #4A4A4A 100%);
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .style-section .section-title,
+        .style-section .section-subtitle {
+            color: var(--cream);
+        }
+
+        .style-features {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .style-feature {
+            flex: 0 1 200px;
+        }
+
+        .style-feature h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--gold-accent);
+            font-weight: 400;
+        }
+
+        .style-feature p {
+            font-size: 0.95rem;
+            color: rgba(250, 247, 242, 0.8);
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            background: white;
+        }
+
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .reason {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .reason-number {
+            font-size: 3rem;
+            color: var(--gold-accent);
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        .reason-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+
+        .reason-content p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background: var(--soft-beige);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 3rem;
+            position: relative;
+            box-shadow: 0 10px 30px var(--shadow-light);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -20px;
+            left: 30px;
+            font-size: 8rem;
+            color: var(--soft-beige);
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 500;
+            color: var(--charcoal);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--deep-rose);
+            font-style: italic;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: white;
+            text-align: center;
+        }
+
+        .experience-list {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .experience-item {
+            background: var(--cream);
+            padding: 2rem 3rem;
+            border-left: 3px solid var(--gold-accent);
+            flex: 0 1 250px;
+        }
+
+        .experience-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .experience-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, var(--deep-rose) 0%, #8B6767 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 5%;
+        }
+
+        .contact .section-title,
+        .contact .section-subtitle {
+            color: white;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.9;
+        }
+
+        .contact .cta-button {
+            background: white;
+            color: var(--deep-rose);
+            border-color: white;
+        }
+
+        .contact .cta-button:hover {
+            background: var(--gold-accent);
+            color: white;
+            border-color: var(--gold-accent);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--charcoal);
+            color: white;
+            text-align: center;
+            padding: 3rem 5%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--gold-accent);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+        }
+
+
+/* Stats Section */
+.stats-section {
+    background: white;
+    padding: 6rem 5%;
+}
+
+.stats-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 3rem;
+    text-align: center;
+}
+
+.stat-item h3 {
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--deep-rose);
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+}
+
+.stat-item p {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #777;
+}
+
+/* Mobile tweak */
+@media (max-width: 480px) {
+    .stat-item h3 {
+        font-size: 3rem;
+    }
+}
+
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+                padding: 0 1rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.9rem;
+                letter-spacing: 2px;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                padding: 4rem 5%;
+            }
+
+            .about-image {
+                height: 400px;
+            }
+
+            .about-content h2 {
+                text-align: center !important;
+                font-size: 2rem !important;
+            }
+
+            .reasons-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 5%;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 0.8rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .style-features {
+                gap: 2rem;
+            }
+
+            .style-feature {
+                flex: 0 1 150px;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .testimonial {
+                padding: 2rem;
+            }
+
+            .experience-list {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            .experience-item {
+                flex: 1 1 auto;
+            }
+
+            .contact {
+                padding: 4rem 5%;
+            }
+
+            .contact p {
+                font-size: 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+                letter-spacing: 2px;
+            }
+
+            nav {
+                padding: 1rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 0.8rem;
+                letter-spacing: 1px;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .reason {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .reason-number {
+                font-size: 2rem;
+            }
+
+            .style-feature {
+                flex: 0 1 100%;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+           <div class="logo serif" style="
+    font-size: 1.9rem;
+    font-weight: 400;
+    letter-spacing: 6px;
+    color: #2C2C2C;
+    position: relative;
+    padding-bottom: 6px;
+">
+    AMAN KASHYAP
+    <span style="
+        display:block;
+        font-size:0.55rem;
+        letter-spacing:4px;
+        text-transform:uppercase;
+        color:#A67B7B;
+        margin-top:4px;
+        font-family: 'Montserrat', sans-serif;
+    ">
+        Wedding Content Creator
+    </span>
+</div>
+            <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#style">STYLE</a></li>
+                <li><a href="#testimonials">TESTIMONIALS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <img src="/images/Banner.jpg" alt="Wedding Banner" class="hero-banner">
+        <div class="hero-content">
+            <h1 class="serif">Your Love Story,<br>Beautifully Told</h1>
+            <p class="subtitle" style="color:#a00000;">Luxury wedding content with a soulful touch</p>
+            <a href="#contact" class="cta-button">LET'S CREATE TOGETHER</a>
+        </div>
+    </section>
+
+    <!-- ✅ STATS SECTION -->
+<section class="stats-section">
+    <div class="stats-grid">
+        <div class="stat-item fade-in">
+            <h3 class="serif">250+</h3>
+            <p>Weddings Captured</p>
+        </div>
+        <div class="stat-item fade-in">
+            <h3 class="serif">10M+</h3>
+            <p>Social Media Views</p>
+        </div>
+        <div class="stat-item fade-in">
+            <h3 class="serif">2500+</h3>
+            <p>Reels Created</p>
+        </div>
+        <div class="stat-item fade-in">
+            <h3 class="serif">97%</h3>
+            <p>Happy Couples</p>
+        </div>
+    </div>
+</section>
+
+    <section id="about" class="about">
+        <div class="about-image"> <img src="/images/About Me.jpeg" alt="Wedding Banner" class="hero-banner"></div>
+        <div class="about-content">
+            <h2 class="serif section-title" style="text-align: left; font-size: 3rem;">About Me</h2>
+            <p>There's something profoundly beautiful about weddings—the stolen glances, the tears of joy, the way two families become one. For me, capturing these moments isn't just a profession; <span class="highlight">it's a calling</span>.</p>
+            
+            <p>I fell in love with wedding storytelling the moment I witnessed my first ceremony through a lens. The raw emotion, the intricate details, the ephemeral magic that deserves to be preserved forever—it moved me deeply. Since then, I've dedicated my craft to <span class="highlight">capturing the moments you'll want to relive</span> for a lifetime.</p>
+            
+            
+            <p>My approach is simple: <span class="highlight">be present, be invisible, be intentional</span>. I work seamlessly alongside your photographer and videographer, capturing the candid, unscripted moments that make your day uniquely yours—ready to share, relive, and treasure.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2 class="serif section-title">Services</h2>
+        <p class="section-subtitle">Crafted content for every moment of your journey</p>
+        
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">🎬</div>
+                <h3 class="serif">Wedding Reels & Cinematic Videos</h3>
+                <p>Stunning short-form videos designed for social media, showcasing your day's most emotional and beautiful moments in a modern, shareable format.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">📱</div>
+                <h3 class="serif">Social Media Content Creation</h3>
+                <p>Instagram-ready content including stories, posts, and highlights that capture your wedding aesthetic and keep your celebration alive online.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">✨</div>
+                <h3 class="serif">Behind-the-Scenes Coverage</h3>
+                <p>Authentic, candid moments from your getting-ready scenes, vendor setups, and intimate moments your main photographer might miss.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">💍</div>
+                <h3 class="serif">Pre-Wedding Content</h3>
+                <p>Engagement announcements, bridal shower moments, rehearsal dinner highlights—document every milestone leading up to your big day.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">🌙</div>
+                <h3 class="serif">Post-Wedding Content</h3>
+                <p>Reception highlights, send-off moments, and next-day content that extends the celebration beyond your wedding day.</p>
+            </div>
+            
+            <div class="service-card fade-in">
+                <div class="service-icon">🤝</div>
+                <h3 class="serif">Brand Collaborations</h3>
+                <p>Luxury wedding content for planners, venues, designers, and brands seeking high-end social media content that converts and inspires.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="style" class="style-section">
+        <h2 class="serif section-title">Creative Style & Approach</h2>
+        <p class="section-subtitle">Where romance meets authenticity</p>
+        
+        <div class="style-features">
+            <div class="style-feature">
+                <h4 class="serif">Romantic</h4>
+                <p>Soft, dreamy aesthetics that celebrate love in its purest form</p>
+            </div>
+            <div class="style-feature">
+                <h4 class="serif">Cinematic</h4>
+                <p>Film-quality production with intentional framing and movement</p>
+            </div>
+            <div class="style-feature">
+                <h4 class="serif">Modern</h4>
+                <p>Trend-aware content that feels fresh and contemporary</p>
+            </div>
+            <div class="style-feature">
+                <h4 class="serif">Authentic</h4>
+                <p>Real moments, real emotions, nothing staged or forced</p>
+            </div>
+        </div>
+        
+        <p style="max-width: 800px; margin: 3rem auto 0; font-size: 1.1rem; line-height: 1.9;">
+            I work <span class="highlight" style="color: var(--gold-accent);">discreetly and unobtrusively</span> during your wedding, blending seamlessly into the background. My goal is to capture genuine moments without disrupting the natural flow of your day. You won't even know I'm there—until you see the magic I've captured.
+        </p>
+    </section>
+
+    <section id="why" class="why-choose">
+        <h2 class="serif section-title">Why Choose Me</h2>
+        <p class="section-subtitle">Exceptional service meets creative excellence</p>
+        
+        <div class="reasons-grid">
+            <div class="reason fade-in">
+                <div class="reason-number serif">01</div>
+                <div class="reason-content">
+                    <h3 class="serif">Unmatched Attention to Detail</h3>
+                    <p>Every frame is carefully composed, every moment intentionally captured. I notice the details others miss—the way your veil catches the light, the tear rolling down your father's cheek, the laughter between bridesmaids.</p>
+                </div>
+            </div>
+            
+            <div class="reason fade-in">
+                <div class="reason-number serif">02</div>
+                <div class="reason-content">
+                    <h3 class="serif">Lightning-Fast Turnaround</h3>
+                    <p>Receive highlight reels within 48-72 hours and full content within 2 weeks. I understand you're excited to share your day, and I work quickly without compromising quality.</p>
+                </div>
+            </div>
+            
+            <div class="reason fade-in">
+                <div class="reason-number serif">03</div>
+                <div class="reason-content">
+                    <h3 class="serif">Trend-Driven Content Strategy</h3>
+                    <p>I stay ahead of social media trends while maintaining timeless elegance. Your content will be optimized for maximum engagement and designed to stop scrollers in their tracks.</p>
+                </div>
+            </div>
+            
+            <div class="reason fade-in">
+                <div class="reason-number serif">04</div>
+                <div class="reason-content">
+                    <h3 class="serif">Timeless Meets Contemporary</h3>
+                    <p>I create content that's shareable today and treasured tomorrow. Modern editing techniques with classic composition principles ensure your content never feels dated.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="experience">
+        <h2 class="serif section-title">Experience & Collaborations</h2>
+        <p class="section-subtitle">Trusted by couples and luxury wedding professionals</p>
+        
+        <div class="experience-list">
+            <div class="experience-item fade-in">
+                <h4 class="serif">Couples</h4>
+                <p>Intimate elopements to grand celebrations across stunning venues</p>
+            </div>
+            <div class="experience-item fade-in">
+                <h4 class="serif">Wedding Planners</h4>
+                <p>Content creation for luxury planning firms and design studios</p>
+            </div>
+            <div class="experience-item fade-in">
+                <h4 class="serif">Venues & Brands</h4>
+                <p>Portfolio content for boutique hotels, estates, and wedding brands</p>
+            </div>
+            <div class="experience-item fade-in">
+                <h4 class="serif">Creative Vendors</h4>
+                <p>Collaborations with florists, stylists, and makeup artists</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <h2 class="serif section-title">What Couples Say</h2>
+        <p class="section-subtitle">Moments that moved hearts</p>
+        
+        <div class="testimonial-grid">
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">We cannot thank you enough for capturing our day so beautifully. The reels you created brought tears to our eyes—you somehow captured every emotion, every glance, every moment we wanted to remember. Our families and friends are still talking about the content you created. You were invisible during the day but your work speaks volumes. Pure magic.</p>
+                <p class="testimonial-author">Sarah & Michael</p>
+                <p class="testimonial-role">Married September 2024</p>
+            </div>
+            
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">As a wedding planner, I've worked with countless content creators, but your eye for detail and ability to capture authentic moments is unparalleled. The content you created for our styled shoot went viral and brought us incredible exposure. You're professional, creative, and an absolute dream to collaborate with. I recommend you to every couple.</p>
+                <p class="testimonial-author">Jennifer Torres</p>
+                <p class="testimonial-role">Luxury Wedding Planner, Eternal Elegance Events</p>
+            </div>
+            
+            <div class="testimonial fade-in">
+                <p class="testimonial-text">When we saw our wedding reel, we cried happy tears all over again. You captured moments we didn't even know happened—my mom fixing my veil, my husband's reaction as I walked down the aisle, our flower girl's sweet dance moves. The delivery was so fast, and the quality exceeded every expectation. Thank you for giving us something we'll treasure forever.</p>
+                <p class="testimonial-author">Priya & Rahul</p>
+                <p class="testimonial-role">Married November 2024</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="serif section-title">Let's Create Something Beautiful</h2>
+        <p class="section-subtitle">Your story deserves to be told beautifully</p>
+        
+        <p>Whether you're planning your dream wedding or you're a creative professional seeking stunning content, I'd love to collaborate with you. Every love story is unique, and I'm here to capture yours in a way that feels authentic, emotional, and unforgettable.</p>
+        
+        <p style="margin-bottom: 3rem;">Let's talk about your vision, your style, and how we can create content that moves hearts and stops scrollers.</p>
+        
+        <a href="/cdn-cgi/l/email-protection#e38b868f8f8ca3908a848d82979691868e8c8e868d9790cd808c8e" class="cta-button">GET IN TOUCH</a>
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#" aria-label="Instagram">📷</a>
+            <a href="#" aria-label="TikTok">🎵</a>
+            <a href="#" aria-label="Pinterest">📌</a>
+            <a href="#" aria-label="Email">✉️</a>
+        </div>
+        <p>© 2024 Signature Moments | Wedding Content Creator | Capturing Love Stories Worldwide</p>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(250, 247, 242, 0.98)';
+                nav.style.boxShadow = '0 2px 30px rgba(0, 0, 0, 0.1)';
+            } else {
+                nav.style.background = 'rgba(250, 247, 242, 0.95)';
+                nav.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.05)';
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // Close menu when clicking on a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                });
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navLinks.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navLinks.classList.remove('active');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
